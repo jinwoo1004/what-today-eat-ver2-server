@@ -1,0 +1,75 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+    id 'java'
+}
+
+group = 'run.ward'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+jar{
+    enabled = false // plain jar 생성 x
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+
+dependencies {
+    //Spring web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.jetbrains:annotations:20.1.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //Spring JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //Transaction, Validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	//mysql
+	implementation 'mysql:mysql-connector-java:8.0.33'
+
+    //Annotation Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    //Test DB h2
+    runtimeOnly 'com.h2database:h2'
+
+    //Real DB mariaDB
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
+    //File upload - react
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'commons-fileupload:commons-fileupload:1.4'
+
+//    //OAuth2
+//    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+    //Aop-aspect
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    //logstash
+    implementation 'net.logstash.logback:logstash-logback-encoder:7.2'
+
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.11'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

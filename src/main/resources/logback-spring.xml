@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <timestamp key="TIMESTAMP" datePattern="yyyyMMdd"/>
+
+    <!-- 콘솔 로그 (Eclipse/IntelliJ 콘솔 출력) -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- JSON 로그를 파일로 저장 -->
+    <appender name="JSON_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/app-log.json</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/app-log-%d{yyyy-MM-dd}.json</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+    </appender>
+
+    <!-- Hibernate SQL 쿼리 출력 -->
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <!-- Hibernate 파라미터 바인딩 출력 -->
+    <logger name="org.hibernate.type.descriptor.sql" level="TRACE"/>
+
+    <!-- Spring 내부 예외 및 디버깅 -->
+    <logger name="org.springframework" level="DEBUG"/>
+
+    <!-- 전체 루트 로거: 콘솔 + 파일 -->
+    <root level="DEBUG">
+        <appender-ref ref="JSON_FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- 선택적으로 ELK 로그 전송용 -->
+    <logger name="ELK_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="JSON_FILE"/>
+    </logger>
+</configuration>
+
+<!-- // 엘라스틱 + 로그스태시 
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <timestamp key="TIMESTAMP" datePattern="yyyyMMdd"/>
+
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+             logstash 서버 ip:port
+        <destination>127.0.0.1:9600</destination>
+
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+    </appender>
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="LOGSTASH"/>
+    </root>
+
+    <logger name="ELK_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="LOGSTASH"/>
+    </logger>
+</configuration> -->
