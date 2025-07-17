@@ -49,17 +49,7 @@
  <img alt="Kibana" src="https://img.shields.io/badge/Kibana-005571.svg?&style=for-the-badge&logo=Kibana&logoColor=white"/>
  <img alt="GithubActions" src="https://img.shields.io/badge/Github Actions-2088FF.svg?&style=for-the-badge&logo=GithubActions&logoColor=white"/>
  <img alt="NGINX" src="https://img.shields.io/badge/NGINX-009639.svg?&style=for-the-badge&logo=NGINX&logoColor=white"/>
- <img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624.svg?&style=for-the-badge&logo=Linux&logoColor=black"/>
+ <img alt="Windows" src="https://img.shields.io/badge/Windows-0078D6.svg?&style=for-the-badge&logo=Windows&logoColor=white"/>
 </div>
-
-<br/>
-
-## 📜 프로젝트 아키텍쳐
-![MMZ Architecture](https://user-images.githubusercontent.com/59650985/194707399-8693271d-016b-4b7e-b0c8-6030fbf85d64.png)
-
-<br/>
-
-## ☺️ 사용자 흐름도
-<img width="5431" alt="user flow1" src="https://user-images.githubusercontent.com/59650985/194708235-cbe2296e-ae53-4fa4-97d9-f614852b1d18.png">
 
 <br/>
