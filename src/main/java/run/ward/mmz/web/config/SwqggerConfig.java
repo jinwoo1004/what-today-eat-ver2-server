@@ -19,7 +19,7 @@ import static java.util.Collections.singleton;
 @Configuration
 public class SwqggerConfig {
 
-    private String url="https://localhost:8080";
+    private String url="https://localhost:8081";
 
     @Bean
     public OpenAPI openAPI(@Value("${server.version")String appVersion,
@@ -27,13 +27,13 @@ public class SwqggerConfig {
 
         Info info = new Info()
                 .version(appVersion)
-                .title("REST API - mmz.today")
+                .title("REST API - wte.today")
                 .description("오늘 뭐먹지의 REST API 문서입니다.")
                 .termsOfService("http://swagger.io/terms")
                 .contact(new Contact()
                         .name("ward")
-                        .url("https://github.com/ItsWard")
-                        .email("bonuswon@gmail.com"))
+                        .url("https://github.com/jinwoo1004")
+                        .email("jinwoo1004@kakao.com"))
                 .license(new License()
                         .name("Apache License Version 2.0")
                         .url("http://www.apache.org/licenses/LICENSE-2.0"));
