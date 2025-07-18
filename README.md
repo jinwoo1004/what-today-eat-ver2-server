@@ -54,5 +54,10 @@
 
 <br/>
 
+### Info
+- APP 내 저장 이미지 경로 /client/src/public/assets/
+
+<br/>
+
 ### UI - Main
 <img src="https://raw.githubusercontent.com/jinwoo1004/what-today-eat-ver2-client/master/public/app-main.png" width="300" />
