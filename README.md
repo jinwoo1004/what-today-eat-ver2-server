@@ -66,5 +66,8 @@
 - Swagger - UI
 <img src="https://raw.githubusercontent.com/jinwoo1004/what-today-eat-ver2-client/master/public/swagger-ui.png" width="300" />
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0350b009022aeb27c7beb2ea5b85b8a5ee1af196
 <br/>
